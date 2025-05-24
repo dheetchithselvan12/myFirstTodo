@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(40deg,#8ad3ec,#8a6363);
+    background-repeat: no-repeat;
+    height: 100VH;
+    font-family: sans-serif;
+
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-height: 580px;
+    border: 1px solid #0f0f0f;
+    padding: 20px;
+    background: linear-gradient(210deg,#2f2f81,#7abaf2);
+    border-radius: 15px;
+    box-shadow: 3px 3px 20px;
+}
+.task-container div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-container div i {
+    font-size: 30px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.task-container div h3 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.task-container input {
+    width: 350px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+.task-container .Add-btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+
+}
+
+.Add-btn:hover {
+    background-color: #7abaf2;
+    transition: all 0.3s ease-in;
+    color: #fff;
+
+}
+
+/*  Style Child Button created by javascripts*/
+
+.child-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 0 5px;
+}
+
+.task-container ul {
+    overflow-y:scroll;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+.task-container ul li {
+    display: flex;
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    justify-content: space-between;
+
+}
