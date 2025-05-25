@@ -25,7 +25,7 @@ addbtn.addEventListener('click', () =>{
     editbtn.classList.add("child-btn");
     editbtn.addEventListener("click", () => {
 
-        if(editbtn.textContent === "Edit"){
+        if(editbtn.textContent === "Edit"){                                    // edit functionality
             const modifyText = document.createElement("input");
             modifyText.value = span.textContent;
             li.insertBefore(modifyText, span);
@@ -48,12 +48,17 @@ addbtn.addEventListener('click', () =>{
        li.appendChild(span)
        li.appendChild(removebtn);
        li.appendChild(editbtn);
+       
 
-        document.getElementById("task-list").appendChild(li);
+
+       
+       const text = document.getElementById("task-list");
+       text.insertBefore(li, text.firstElementChild);
+
 
     }
 
-textInput.value = "";
-})
+    textInput.value = "";
+});
 
 
