@@ -78,13 +78,14 @@ body {
 
 /*  Style Child Button created by javascripts*/
 
-.child-btn {
+.child-btn, button {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 5px;
     border: none;
     outline: none;
     margin: 0 5px;
+    cursor: pointer;
 }
 
 .task-container ul {
@@ -99,10 +100,18 @@ body {
 .task-container ul li {
     display: flex;
     list-style: none;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 1.5px;
+    justify-items: flex-start;
     justify-content: space-between;
+    
+    
+}
+ul li span {
+    max-width: 70%;
+    width: 100%;
+    overflow:hidden;
 
 }
