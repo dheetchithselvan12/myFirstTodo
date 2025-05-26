@@ -1,5 +1,11 @@
 
 
+// Toggle Theme
+const modebtn = document.getElementById("dl-btn");
+modebtn.addEventListener("click",() => {
+    document.body.classList.toggle("dl-theme");
+})
+
 const addbtn = document.getElementById("Add-btn");
 
 addbtn.addEventListener('click', () =>{
@@ -25,7 +31,11 @@ addbtn.addEventListener('click', () =>{
     editbtn.classList.add("child-btn");
     editbtn.addEventListener("click", () => {
 
-        if(editbtn.textContent === "Edit"){                                    // edit functionality
+        const inputEdit = li.querySelector("input");
+
+        if(!inputEdit){                                    // edit Button functionality
+
+            const span = li.querySelector("span");
             const modifyText = document.createElement("input");
             modifyText.value = span.textContent;
             li.insertBefore(modifyText, span);
@@ -34,11 +44,11 @@ addbtn.addEventListener('click', () =>{
 
         }
         else {
-            const modifyText = li.querySelector("input");
+
             const newspan = document.createElement("span");
-            newspan.textContent = modifyText.value;
-            li.insertBefore(newspan, modifyText);
-            li.removeChild(modifyText);
+            newspan.textContent = inputEdit.value;
+            li.insertBefore(newspan, inputEdit);
+            li.removeChild(inputEdit);
             editbtn.textContent = "Edit";
         }
 
