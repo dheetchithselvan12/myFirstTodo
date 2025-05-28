@@ -31,13 +31,20 @@ addbtn.addEventListener('click', () =>{
     let check = document.createElement("button");
     check.innerHTML = "<i class='bx bx-radio-circle'></i> ";
     check.classList.add("check-btn");
-    check.addEventListener("click", () => {
-        check.innerHTML = "<i class='bx bx-radio-circle-marked'></i>";
-        li.querySelector("span").style.textDecorationLine = "line-through",check.style.opacity = "0.4", span.style.opacity = "0.4";
 
+    // check and uncheck ----- 28 may 2025 - 10:39
+    let checked = false;
+    check.addEventListener("click", () => {
+
+        const currentspan = li.querySelector("span");  // This will hold the current value from span element and it helps to check and uncheck before and after edit. 
+        
+        checked = !checked
+        check.innerHTML = checked ? "<i class='bx bx-radio-circle-marked'></i>" : "<i class='bx bx-radio-circle'></i> ";
+        currentspan.style.textDecorationLine = checked ? "line-through" : "none";
+        currentspan.style.opacity = checked ? "0.4" :"1";
 
     });
-    
+
 
     //    create Edit button with list
 
@@ -47,11 +54,11 @@ addbtn.addEventListener('click', () =>{
     editbtn.addEventListener("click", () => {
 
         const inputEdit = li.querySelector("input");
+        const currentspan = li.querySelector("span");    //created at 28 may 2025  
 
         if(!inputEdit){                                    // edit Button functionality
-            const span = li.querySelector("span");
             const modifyText = document.createElement("input");
-            modifyText.value = span.textContent;
+            modifyText.value = currentspan.textContent;
             li.insertBefore(modifyText, span);
             li.removeChild(span);
             editbtn.textContent = "Save";
@@ -64,9 +71,19 @@ addbtn.addEventListener('click', () =>{
             li.removeChild(inputEdit);
             editbtn.textContent = "Edit";
 
+
+            
+            newspan.style.textDecorationLine = checked ? "line-through" : "none";
+            newspan.style.opacity = checked ? "0.4" : "1";
+
+
+            li.replaceChild(newspan, inputEdit);
+            span = newspan;
+
+
             // edit after task done
-            li.querySelector("span").style.textDecorationLine = "line-through";
-            li.querySelector("span").style.opacity = "0.4"
+
+
         }
 
     });
