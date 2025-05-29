@@ -91,9 +91,11 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
 }
-.task-container input {
+/* task input box  */
+.task-container .task-input{
     width: 350px;
     padding: 8px;
     border: none;
@@ -118,20 +120,48 @@ body {
 
 }
 
+
 /*  Style Child Button created by javascripts*/
 
-.child-btn, button {
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 5px;
+.li-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 307px;
+    padding: 8px;
     border: none;
     outline: none;
-    margin: 0 5px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    color: blue;
+
+
+}
+.li-right-btn {
+    margin: 0 4px;
+    font-size: 15px;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #242424;
+}
+
+.check-btn {
+    display: flex;
+    border-radius: 50%;
+    font-size: 25px;
+    background: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
 }
 
+
 .task-container ul {
     overflow-y:scroll;
+    scrollbar-width:none;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -158,10 +188,4 @@ ul li span {
 
 }
 
-.check-btn {
-    display: flex;
-    border-radius: 50%;
-    font-size: 25px;
-    padding: 1px 6px;
-    background: transparent;
-}
+

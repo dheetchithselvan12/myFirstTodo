@@ -22,8 +22,10 @@ addbtn.addEventListener('click', () =>{
         // Creat remove Button with list
 
        const removebtn = document.createElement("button");
-       removebtn.textContent = "-";
-       removebtn.classList.add("child-btn");
+       removebtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+       removebtn.classList.add("li-right-btn");
+    //    removebtn.classList.add("li-btn");
+
        removebtn.addEventListener("click", () =>(li.remove()));                 //remove functionality
 
     //    check task done
@@ -37,7 +39,7 @@ addbtn.addEventListener('click', () =>{
     check.addEventListener("click", () => {
 
         const currentspan = li.querySelector("span");  // This will hold the current value from span element and it helps to check and uncheck before and after edit. 
-        
+
         checked = !checked
         check.innerHTML = checked ? "<i class='bx bx-radio-circle-marked'></i>" : "<i class='bx bx-radio-circle'></i> ";
         currentspan.style.textDecorationLine = checked ? "line-through" : "none";
@@ -48,20 +50,22 @@ addbtn.addEventListener('click', () =>{
 
     //    create Edit button with list
 
-    const editbtn = document.createElement("buttion");
-    editbtn.textContent = "Edit";
-    editbtn.classList.add("child-btn");
+    const editbtn = document.createElement("button");
+    editbtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    editbtn.classList.add("li-right-btn");
     editbtn.addEventListener("click", () => {
 
         const inputEdit = li.querySelector("input");
         const currentspan = li.querySelector("span");    //created at 28 may 2025  
 
-        if(!inputEdit){                                    // edit Button functionality
+        if(!inputEdit){                   // edit Button functionality
+            const span = li.querySelector("span");        // it is used for edit task every time "don't delete this line"         
             const modifyText = document.createElement("input");
+            modifyText.classList.add("li-input");
             modifyText.value = currentspan.textContent;
             li.insertBefore(modifyText, span);
             li.removeChild(span);
-            editbtn.textContent = "Save";
+            editbtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i>';
 
         }
         else {
@@ -69,7 +73,7 @@ addbtn.addEventListener('click', () =>{
             newspan.textContent = inputEdit.value;
             li.insertBefore(newspan, inputEdit);
             li.removeChild(inputEdit);
-            editbtn.textContent = "Edit";
+            editbtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
 
 
             
@@ -77,8 +81,8 @@ addbtn.addEventListener('click', () =>{
             newspan.style.opacity = checked ? "0.4" : "1";
 
 
-            li.replaceChild(newspan, inputEdit);
-            span = newspan;
+            // li.replaceChild(newspan, inputEdit);
+            // span = newspan;
 
 
             // edit after task done
